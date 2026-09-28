@@ -1,3 +1,3 @@
 print("Hello Git")
 print("I am learning Git")
-print("This is conflict B")
+print("This is conflict A and B")
