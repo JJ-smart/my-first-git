@@ -1,3 +1,7 @@
+import matplotlib
+
+matplotlib.use("Agg")
+
 import matplotlib.pyplot as plt
 
 from analysis_utils import (
@@ -27,7 +31,6 @@ def print_report(result):
 
 def plot_scores(df):
     """绘制总分趋势图"""
-
     plt.figure(figsize=(8, 5))
 
     plt.plot(
@@ -40,11 +43,13 @@ def plot_scores(df):
     plt.title("CET-6 Total Score Trend")
     plt.xlabel("Date")
     plt.ylabel("Score")
-
     plt.legend()
     plt.grid(True)
-    plt.show()
 
+    plt.savefig("data/score_trend.png")
+    plt.close()
+
+    print("成绩趋势图已保存：data/score_trend.png")
 
 def main():
     df = load_data("data/scores.csv")
